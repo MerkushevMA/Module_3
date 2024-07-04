@@ -3,12 +3,9 @@ def send_email(message, recipient, sender = 'university.help@gmail.com'):
 
     if recipient.find("@") == -1 or sender.find("@") == -1:
         print('Невозможно отправить письмо с адреса', sender, 'на адрес', recipient)
-        return
-    elif not recipient.lower().endswith(list_end) and sender.lower().endswith(list_end):
+    elif not recipient.lower().endswith(list_end) and not sender.lower().endswith(list_end):
         print('Невозможно отправить письмо с адреса', sender, 'на адрес', recipient)
-        return
-
-    if sender == recipient:
+    elif sender == recipient:
         print('Нельзя отправить письмо самому себе!')
     elif sender == 'university.help@gmail.com':
         print('Письмо успешно отправлено с адреса', sender, 'на адрес', recipient)
